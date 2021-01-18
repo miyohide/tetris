@@ -4,6 +4,9 @@
   "main": "index.js",
   "author": "Hidenori Miyoshi <miyohide@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "build": "webpack"
+  },
   "devDependencies": {
     "webpack": "^5.15.0",
     "webpack-cli": "^4.3.1"
