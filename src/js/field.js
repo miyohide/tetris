@@ -63,4 +63,7 @@ export class Field {
   get GAME_WIDTH() {
     return 12
   }
+  get GAME_HEIGHT() {
+    return 21
+  }
 }
