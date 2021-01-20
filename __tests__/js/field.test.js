@@ -20,4 +20,14 @@ describe('tileAt', () => {
     }
     expect(field.tileAt(width - 1, 5)).toBe(1)
   })
+
+  it('初期状態における最後の行の確認', () => {
+    let field = new Field(undefined)
+    let width = field.GAME_WIDTH
+    expect(field.tileAt(0, 20)).toBe(1)
+    for (let i = 1; i < width - 1; i++) {
+      expect(field.tileAt(i, 20)).toBe(1)
+    }
+    expect(field.tileAt(width - 1, 20)).toBe(1)
+  })
 })
