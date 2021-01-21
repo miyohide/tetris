@@ -52,4 +52,9 @@ describe('findLineField', () => {
     }
     expect(field.findLineFilled()).toBe(target_line)
   })
+
+  it('すべてが1である行がなかった場合は-1を返すこと', () => {
+    let field = new Field(undefined)
+    expect(field.findLineFilled()).toBe(-1)
+  })
 })
