@@ -32,3 +32,12 @@ describe('tileAt', () => {
     expect(field.tileAt(width - 1, height - 1)).toBe(1)
   })
 })
+
+describe('putBlock', () => {
+  it('指定された場所が1になっていること', () => {
+    let field = new Field(undefined)
+    expect(field.tileAt(2, 5)).toBe(0)
+    field.putBlock(2, 5)
+    expect(field.tileAt(2, 5)).toBe(1)
+  })
+})
