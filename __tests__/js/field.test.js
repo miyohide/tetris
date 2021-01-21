@@ -41,3 +41,15 @@ describe('putBlock', () => {
     expect(field.tileAt(2, 5)).toBe(1)
   })
 })
+
+describe('findLineField', () => {
+  it('すべてが1である行があった場合はその行の番号を返すこと', () => {
+    let field = new Field(undefined)
+    let width = field.GAME_WIDTH
+    let target_line = 7
+    for (let x = 0; x < width; x++) {
+      field.putBlock(x, target_line)
+    }
+    expect(field.findLineFilled()).toBe(target_line)
+  })
+})
