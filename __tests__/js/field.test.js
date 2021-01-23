@@ -58,3 +58,23 @@ describe('findLineField', () => {
     expect(field.findLineFilled()).toBe(-1)
   })
 })
+
+describe('cutLine', () => {
+  it('対象となる行が削除され、新しく行が上に追加されること', () => {
+    let field = new Field(undefined)
+    let width = field.GAME_WIDTH
+    let target_line = 7
+    for (let x = 0; x < width; x++) {
+      field.putBlock(x, target_line)
+    }
+    expect(field.findLineFilled()).toBe(target_line)
+    field.cutLine(target_line)
+    expect(field.findLineFilled()).toBe(-1)
+    expect(field.tileAt(0, 0)).toBe(1)
+    for (let i = 1; i < width - 1; i++) {
+      expect(field.tileAt(i, 0)).toBe(0)
+    }
+    expect(field.tileAt(width - 1, 0)).toBe(1)
+  })
+})
+
