@@ -12,9 +12,7 @@ describe('calcBlocks', () => {
         new Block(undefined, 6, 10)
       ]
       let blocks = mino.calcBlocks()
-      for (let i = 0; i < blocks.length; i++) {
-        expect(blocks[i].equals(expect_blocks[i])).toBe(true)
-      }
+      expect(blocks).toEqual(expect_blocks)
     })
 
     it('rotが1のとき90度回転したT字型のブロックが返ること', () => {
@@ -26,9 +24,7 @@ describe('calcBlocks', () => {
         new Block(undefined, 5, 11)
       ]
       let blocks = mino.calcBlocks()
-      for (let i = 0; i < blocks.length; i++) {
-        expect(blocks[i].equals(expect_blocks[i])).toBe(true)
-      }
+      expect(blocks).toEqual(expect_blocks)
     })
 
     it('rotが2のとき180度回転したT字型のブロックが返ること', () => {
@@ -40,9 +36,7 @@ describe('calcBlocks', () => {
         new Block(undefined, 4, 10)
       ]
       let blocks = mino.calcBlocks()
-      for (let i = 0; i < blocks.length; i++) {
-        expect(blocks[i].equals(expect_blocks[i])).toBe(true)
-      }
+      expect(blocks).toEqual(expect_blocks)
     })
 
     it('rotが3のとき270度回転したT字型のブロックが返ること', () => {
@@ -54,9 +48,7 @@ describe('calcBlocks', () => {
         new Block(undefined, 5, 9)
       ]
       let blocks = mino.calcBlocks()
-      for (let i = 0; i < blocks.length; i++) {
-        expect(blocks[i].equals(expect_blocks[i])).toBe(true)
-      }
+      expect(blocks).toEqual(expect_blocks)
     })
 
     it('rotが4のとき360度回転したT字型のブロックが返ること', () => {
@@ -68,9 +60,7 @@ describe('calcBlocks', () => {
         new Block(undefined, 6, 10)
       ]
       let blocks = mino.calcBlocks()
-      for (let i = 0; i < blocks.length; i++) {
-        expect(blocks[i].equals(expect_blocks[i])).toBe(true)
-      }
+      expect(blocks).toEqual(expect_blocks)
     })
   })
 })
