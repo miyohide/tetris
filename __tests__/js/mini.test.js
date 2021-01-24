@@ -3,7 +3,7 @@ import { Block } from '../../src/js/block'
 
 describe('calcBlocks', () => {
   describe('shape is 0', () => {
-    it('should ', () => {
+    it('T字型のブロックが返ること', () => {
       let mino = new Mino(undefined, 5, 10, 0, 0)
       let expect_blocks = [
         new Block(undefined, 4, 10),
