@@ -12,4 +12,7 @@ export class Block {
     this.p.rect(s*this.x, s*this.y, s, s)
     this.p.pop()
   }
+  equals(other) {
+    return this.x === other.x && this.y === other.y
+  }
 }
