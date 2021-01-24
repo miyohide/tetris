@@ -16,5 +16,19 @@ describe('calcBlocks', () => {
         expect(blocks[i].equals(expect_blocks[i])).toBe(true)
       }
     })
+
+    it('rotが1のとき90度回転したT字型のブロックが返ること', () => {
+      let mino = new Mino(undefined, 5, 10, 1, 0)
+      let expect_blocks = [
+        new Block(undefined, 5, 9),
+        new Block(undefined, 5, 10),
+        new Block(undefined, 6, 10),
+        new Block(undefined, 5, 11)
+      ]
+      let blocks = mino.calcBlocks()
+      for (let i = 0; i < blocks.length; i++) {
+        expect(blocks[i].equals(expect_blocks[i])).toBe(true)
+      }
+    })
   })
 })
