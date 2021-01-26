@@ -113,7 +113,7 @@ describe('calcBlocks', () => {
       expect(blocks).toEqual(expect_blocks)
     })
 
-    it('rotが3のときz字型のブロックが返ること', () => {
+    it('rotが4のときz字型のブロックが返ること', () => {
       let mino = new Mino(undefined, 5, 10, 4, 1)
       let expect_blocks = [
         new Block(undefined, 4, 9),
