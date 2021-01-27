@@ -251,7 +251,7 @@ describe('calcBlocks', () => {
   })
 
   describe('shape is 4', () => {
-    it('逆z字型のブロックが返ること', () => {
+    it('逆L字型のブロックが返ること', () => {
       let mino = new Mino(undefined, 5, 10, 0, 4)
       let expect_blocks = [
         new Block(undefined, 5, 8),
@@ -263,7 +263,7 @@ describe('calcBlocks', () => {
       expect(blocks).toEqual(expect_blocks)
     })
 
-    it('rotが1のとき90度回転した逆z字型のブロックが返ること', () => {
+    it('rotが1のとき90度回転した逆L字型のブロックが返ること', () => {
       let mino = new Mino(undefined, 5, 10, 1, 4)
       let expect_blocks = [
         new Block(undefined, 7, 10),
@@ -275,7 +275,7 @@ describe('calcBlocks', () => {
       expect(blocks).toEqual(expect_blocks)
     })
 
-    it('rotが2のとき180度回転した逆z字型のブロックが返ること', () => {
+    it('rotが2のとき180度回転した逆L字型のブロックが返ること', () => {
       let mino = new Mino(undefined, 5, 10, 2, 4)
       let expect_blocks = [
         new Block(undefined, 5, 12),
@@ -287,7 +287,7 @@ describe('calcBlocks', () => {
       expect(blocks).toEqual(expect_blocks)
     })
 
-    it('rotが3のとき270度回転した逆z字型のブロックが返ること', () => {
+    it('rotが3のとき270度回転した逆L字型のブロックが返ること', () => {
       let mino = new Mino(undefined, 5, 10, 3, 4)
       let expect_blocks = [
         new Block(undefined, 3, 10),
@@ -299,7 +299,7 @@ describe('calcBlocks', () => {
       expect(blocks).toEqual(expect_blocks)
     })
 
-    it('rotが4のとき逆z字型のブロックが返ること', () => {
+    it('rotが4のとき逆L字型のブロックが返ること', () => {
       let mino = new Mino(undefined, 5, 10, 4, 4)
       let expect_blocks = [
         new Block(undefined, 5, 8),
