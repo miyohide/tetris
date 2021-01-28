@@ -74,6 +74,42 @@ describe('calcBlocks', () => {
       let blocks = mino.calcBlocks()
       expect(blocks).toEqual(expect_blocks)
     })
+
+    it('rotが-2のとき-180度回転したT字型のブロックが返ること', () => {
+      let mino = new Mino(undefined, 5, 10, -2, 0)
+      let expect_blocks = [
+        new Block(undefined, 6, 10),
+        new Block(undefined, 5, 10),
+        new Block(undefined, 5, 11),
+        new Block(undefined, 4, 10)
+      ]
+      let blocks = mino.calcBlocks()
+      expect(blocks).toEqual(expect_blocks)
+    })
+
+    it('rotが-3のとき-270度回転したT字型のブロックが返ること', () => {
+      let mino = new Mino(undefined, 5, 10, -3, 0)
+      let expect_blocks = [
+        new Block(undefined, 5, 9),
+        new Block(undefined, 5, 10),
+        new Block(undefined, 6, 10),
+        new Block(undefined, 5, 11)
+      ]
+      let blocks = mino.calcBlocks()
+      expect(blocks).toEqual(expect_blocks)
+    })
+
+    it('rotが-4のとき-360度回転したT字型のブロックが返ること', () => {
+      let mino = new Mino(undefined, 5, 10, -4, 0)
+      let expect_blocks = [
+        new Block(undefined, 4, 10),
+        new Block(undefined, 5, 10),
+        new Block(undefined, 5, 9),
+        new Block(undefined, 6, 10)
+      ]
+      let blocks = mino.calcBlocks()
+      expect(blocks).toEqual(expect_blocks)
+    })
   })
 
   describe('shape is 1', () => {
