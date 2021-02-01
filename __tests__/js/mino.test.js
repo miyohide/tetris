@@ -484,3 +484,14 @@ describe('calcBlocks', () => {
     })
   })
 })
+
+describe('copy', () => {
+  it('return Mino instance that all data copied', () => {
+    let m = new Mino(undefined, 3, 5, 2, 4)
+    let copied = m.copy()
+    expect(copied.x).toEqual(m.x)
+    expect(copied.y).toEqual(m.y)
+    expect(copied.rot).toEqual(m.rot)
+    expect(copied.shape).toEqual(m.shape)
+  })
+})
