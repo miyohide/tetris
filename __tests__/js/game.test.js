@@ -19,6 +19,13 @@ describe('isMinoMovable', () => {
     expect(Game.isMinoMovable(mino, new Field(undefined))).toBeFalsy()
   })
 
+  it('左端からひとつ右にMinoがあるとき、trueを返すこと', () => {
+    // shape = 0で凸型のMinoを指定。引数のx座標は真ん中のBlockの座標を
+    // 示すため、左端から一つ右に設置するためにx = 2を指定している。
+    let mino = new Mino(undefined, 2, 2, 0, 0)
+    expect(Game.isMinoMovable(mino, new Field(undefined))).toBeTruthy()
+  })
+
   it('右端にMinoがあるとき、falseを返すこと', () => {
     let f = new Field(undefined)
     // shape = 0で凸型のMinoを指定。引数のx座標は真ん中のBlockの座標を
@@ -27,10 +34,26 @@ describe('isMinoMovable', () => {
     expect(Game.isMinoMovable(mino, f)).toBeFalsy()
   })
 
-  it('下にMinoがあるとき、falseを返すこと', () => {
+  it('右端からひとつ左にMinoがあるとき、trueを返すこと', () => {
+    let f = new Field(undefined)
+    // shape = 0で凸型のMinoを指定。引数のx座標は真ん中のBlockの座標を
+    // 示すため、右端から一つ左に設置するために幅から3つ引いた値を指定している。
+    let mino = new Mino(undefined, f.GAME_WIDTH - 3, 2, 0, 0)
+    expect(Game.isMinoMovable(mino, f)).toBeTruthy()
+  })
+
+  it('底辺にMinoがあるとき、falseを返すこと', () => {
     let f = new Field(undefined)
     // shape = 0で凸型のMinoを指定。引数のy座標は真ん中のBlockの座標を
-    // 示すため、下に設置するために高さから1つ引いた値を指定している。
+    // 示すため、底辺に設置するために高さから1つ引いた値を指定している。
+    let mino = new Mino(undefined, 3, f.GAME_HEIGHT - 1, 0, 0)
+    expect(Game.isMinoMovable(mino, f)).toBeFalsy()
+  })
+
+  it('底辺から一つ上にMinoがあるとき、falseを返すこと', () => {
+    let f = new Field(undefined)
+    // shape = 0で凸型のMinoを指定。引数のy座標は真ん中のBlockの座標を
+    // 示すため、底辺からひとつ上に設置するために高さから1つ引いた値を指定している。
     let mino = new Mino(undefined, 3, f.GAME_HEIGHT - 1, 0, 0)
     expect(Game.isMinoMovable(mino, f)).toBeFalsy()
   })
