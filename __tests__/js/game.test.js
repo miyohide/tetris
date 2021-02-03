@@ -26,4 +26,12 @@ describe('isMinoMovable', () => {
     let mino = new Mino(undefined, f.GAME_WIDTH - 2, 2, 0, 0)
     expect(Game.isMinoMovable(mino, f)).toBeFalsy()
   })
+
+  it('下にMinoがあるとき、falseを返すこと', () => {
+    let f = new Field(undefined)
+    // shape = 0で凸型のMinoを指定。引数のy座標は真ん中のBlockの座標を
+    // 示すため、下に設置するために高さから1つ引いた値を指定している。
+    let mino = new Mino(undefined, 3, f.GAME_HEIGHT - 1, 0, 0)
+    expect(Game.isMinoMovable(mino, f)).toBeFalsy()
+  })
 })
