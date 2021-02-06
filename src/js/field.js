@@ -52,8 +52,8 @@ export class Field {
     this.tiles.unshift([1,0,0,0,0,0,0,0,0,0,0,1])
   }
   draw() {
-    for (let y = 0; y < 21; y++) {
-      for (let x = 0; x < 12; x++) {
+    for (let y = 0; y < this.GAME_HEIGHT; y++) {
+      for (let x = 0; x < this.GAME_WIDTH; x++) {
         if (this.tileAt(x, y) !== 0) {
           new Block(this.p, x ,y).draw()
         }
