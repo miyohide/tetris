@@ -58,3 +58,27 @@ describe('isMinoMovable', () => {
     expect(Game.isMinoMovable(mino, f)).toBeFalsy()
   })
 })
+
+describe('moveLeftRight', () => {
+  it('移動可能な時、指定した分移動すること', () => {
+    const g = new Game(undefined)
+    const beforeX = g.mino.x
+    const beforeY = g.mino.y
+    const moveVal = 1
+    g.minoVx = moveVal
+    g.moveLeftRight()
+    expect(g.mino.x).toBe(beforeX + moveVal)
+    expect(g.mino.y).toBe(beforeY)
+  })
+
+  it('移動不可能な時、移動しないこと', () => {
+    const g = new Game(undefined)
+    const beforeX = g.mino.x
+    const beforeY = g.mino.y
+    const moveVal = 13
+    g.minoVx = moveVal
+    g.moveLeftRight()
+    expect(g.mino.x).toBe(beforeX)
+    expect(g.mino.y).toBe(beforeY)
+  })
+})
