@@ -32,6 +32,17 @@ export class Game {
       this.minoVx = 0
     }
   }
+  rotation() {
+    // 回転
+    if (this.minoVr !== 0) {
+      let futureMino = this.mino.copy()
+      futureMino.rot += this.minoVr
+      if (Game.isMinoMovable(futureMino, this.field)) {
+        this.mino.rot += this.minoVr
+      }
+      this.minoVr = 0
+    }
+  }
   proc () {
     // 落下
     if (this.frame % 20 === 19) {
@@ -52,15 +63,7 @@ export class Game {
       }
     }
     this.moveLeftRight()
-    // 回転
-    if (this.minoVr !== 0) {
-      let futureMino = this.mino.copy()
-      futureMino.rot += this.minoVr
-      if (Game.isMinoMovable(futureMino, this.field)) {
-        this.mino.rot += this.minoVr
-      }
-      this.minoVr = 0
-    }
+    this.rotation()
     this.p.background(64)
     this.mino.draw()
     this.field.draw()

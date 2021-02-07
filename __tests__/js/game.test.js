@@ -82,3 +82,14 @@ describe('moveLeftRight', () => {
     expect(g.mino.y).toBe(beforeY)
   })
 })
+
+describe('rotation', () => {
+  it('回転可能な時、回転すること', () => {
+    const g = new Game(undefined)
+    const moveRot = 1
+    g.minoVr = moveRot
+    g.rotation()
+    expect(g.mino.rot).toBe(moveRot)
+    expect(g.minoVr).toBe(0) // 初期値に戻ること
+  })
+})
