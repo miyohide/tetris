@@ -92,4 +92,15 @@ describe('rotation', () => {
     expect(g.mino.rot).toBe(moveRot)
     expect(g.minoVr).toBe(0) // 初期値に戻ること
   })
+
+  it('回転不可能な時、回転しないこと', () => {
+    const g = new Game(undefined)
+    const moveVal = -3 // 左端に寄せて反時計回りに回転しないことを確認
+    g.minoVx = moveVal
+    g.moveLeftRight()
+    g.minovr = -1
+    g.rotation()
+    expect(g.mino.rot).toBe(0)
+    expect(g.minoVr).toBe(0) // 初期値に戻ること
+  })
 })
