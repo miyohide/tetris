@@ -104,3 +104,25 @@ describe('rotation', () => {
     expect(g.minoVr).toBe(0) // 初期値に戻ること
   })
 })
+
+describe('moveDown', () => {
+  it('下に移動可能な時、下に移動すること', () => {
+    const g = new Game(undefined)
+    const beforeMinoX = g.mino.x
+    const beforeMinoY = g.mino.y
+    g.moveDown()
+    expect(g.mino.x).toBe(beforeMinoX)
+    expect(g.mino.y).toBe(beforeMinoY + 1)
+  })
+
+  it('下に移動不可能な時、設置すること', () => {
+    const g = new Game(undefined)
+    for(let i = 0; i < 9; i++) {
+      g.moveDown()
+    }
+    g.moveDown()
+    expect(g.field.tiles[17]).toEqual([1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1])
+    expect(g.field.tiles[18]).toEqual([1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1])
+    expect(g.field.tiles[19]).toEqual([1, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 1])
+  })
+})

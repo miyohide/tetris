@@ -21,6 +21,23 @@ export class Game {
     let blocks = mino.calcBlocks()
     return blocks.every(b => field.tileAt(b.x, b.y) === 0)
   }
+  moveDown() {
+    let futureMino = this.mino.copy()
+    futureMino.y += 1
+    if (Game.isMinoMovable(futureMino, this.field)) {
+      this.mino.y += 1
+    } else {
+      // 接地
+      for (let b of this.mino.calcBlocks()) {
+        this.field.putBlock(b.x, b.y)
+        this.mino = Game.makeMino(this.p)
+      }
+    }
+    let line
+    while((line = this.field.findLineFilled()) !== -1) {
+      this.field.cutLine(line)
+    }
+  }
   moveLeftRight() {
     // 左右移動
     if (this.minoVx !== 0) {
@@ -46,21 +63,7 @@ export class Game {
   proc () {
     // 落下
     if (this.frame % 20 === 19) {
-      let futureMino = this.mino.copy()
-      futureMino.y += 1
-      if (Game.isMinoMovable(futureMino, this.field)) {
-        this.mino.y += 1
-      } else {
-        // 接地
-        for (let b of this.mino.calcBlocks()) {
-          this.field.putBlock(b.x, b.y)
-          this.mino = Game.makeMino(this.p)
-        }
-      }
-      let line
-      while((line = this.field.findLineFilled()) !== -1) {
-        this.field.cutLine(line)
-      }
+      this.moveDown()
     }
     this.moveLeftRight()
     this.rotation()
