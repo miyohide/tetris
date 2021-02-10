@@ -125,4 +125,15 @@ describe('moveDown', () => {
     expect(g.field.tiles[18]).toEqual([1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1])
     expect(g.field.tiles[19]).toEqual([1, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 1])
   })
+
+  it('行が揃ったら、消えること', () => {
+    const g = new Game(undefined)
+    const delete_line = 5
+    for (let i = 0; i < g.field.GAME_WIDTH; i++) {
+      g.field.putBlock(i, delete_line)
+    }
+    expect(g.field.tiles[delete_line]).toEqual([1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1])
+    g.moveDown()
+    expect(g.field.tiles[delete_line]).toEqual([1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1])
+  })
 })
